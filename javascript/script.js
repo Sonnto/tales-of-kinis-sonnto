@@ -50,6 +50,11 @@ function selectChoice(choice) {
 }
 
 //Array of objects which represent the different stories/pathways and choices
+
+//beginning with 0 = intro & deaths
+//beginning with 1xx = first path (canonical light/best path)
+//beginnig with 2xx = second path (delayed death path)
+//beginning with 3xx = third path (dark path)
 const storyTexts = [
   // INTRO
   {

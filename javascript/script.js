@@ -8,7 +8,7 @@ let sonnto = {};
 //FUNCTIONS
 //Game-Starting Function
 function startGame() {
-  sonnto = {};
+  sonnto = {}; //Character, Kinis Sonnto, object
   showStoryText(1);
 }
 
@@ -19,12 +19,25 @@ function showStoryText(storyTextIndex) {
   );
   //arrow function to show the specific story that matches the pathID, which are structured as objects within the array
   storyTextElement.innerText = storyText.text;
+  //remove other choices after it has been selected
+  while (choiceButtonsElement.firstChild) {
+    choiceButtonsElement.removeChild(choiceButtonsElement.firstChild);
+  }
+
+  storyText.choices.forEach(choice => {
+    if (showChoice(choice)) //check to see if can see choices, if so execute
+      const button = document.createElement('button');
+  })
+}
+
+function showChoice(choice) {
+  return true;
 }
 
 //Choice-Selecting Function, to know which choice player chooses
 function selectChoice(choice) {}
 
-//Array objects which represent the different stories/pathways and choices
+//Array of objects which represent the different stories/pathways and choices
 const storyTexts = [
   {
     pathID: 1,

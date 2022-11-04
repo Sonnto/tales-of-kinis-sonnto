@@ -48,14 +48,14 @@ footer {
   text-shadow: 0 0 2px #5ebff7;
 }
 
-/* STORY CARD */
+/* STORY */
 /* item */
 .story {
   width: 800px;
-  max-width: 80%;
+  max-width: 90%;
   /* background-color: #fff; */
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 0 10px #fff;
 }
 
@@ -63,6 +63,7 @@ footer {
   color: #fff;
 }
 
+/* BUTTONS */
 .button-layout {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -70,7 +71,6 @@ footer {
   margin-top: 20px;
 }
 
-/* BUTTONS */
 .button {
   background-color: #5ebff7;
   border: 1px solid #606060;

@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Space Mono", Arial, sans-serif;
+}

@@ -8,7 +8,7 @@
   font-family: "Space Mono", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
 }
-
+/* 1em = 16px */
 /* body is the container, the rest are items*/
 body {
   padding: 0;
@@ -20,31 +20,47 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #151515;
-  gap: 5em;
+  gap: 1em;
+}
+
+/* Copyright text */
+footer {
+  color: #fff;
+  font-size: 8px;
+  font-family: "Franklin Gothic Medium";
 }
 
 /* GAME TITLE STYLING */
 /* item */
 .title {
-  font-family: "Franklin Gothic Medium";
   color: #ffe81f;
-  width: 800px;
+  font-family: "Franklin Gothic Medium";
+  font-size: larger;
+  text-align: center;
+  /* width: 800px;
   max-width: 80%;
   padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #5ebff7;
-  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #5ebff7; */
 }
 
-/* STORY CARD ITEMS */
+.title h1 {
+  text-shadow: 0 0 2px #5ebff7;
+}
+
+/* STORY CARD */
 /* item */
 .story {
   width: 800px;
   max-width: 80%;
-  background-color: #fff;
+  /* background-color: #fff; */
   padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #5ebff7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #fff;
+}
+
+#story-text {
+  color: #fff;
 }
 
 .button-layout {
@@ -54,5 +70,20 @@ body {
   margin-top: 20px;
 }
 
-button {
+/* BUTTONS */
+.button {
+  background-color: #5ebff7;
+  border: 1px solid #606060;
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: #fff;
+  /* outline: none; */
+}
+
+.button:hover {
+  box-shadow: 0 0 10px #daf1ff;
+}
+
+.button:active {
+  background-color: #8fd6ff;
 }

@@ -17,7 +17,7 @@ function showStoryText(storyTextIndex) {
   const storyText = storyTexts.find(
     (storyText) => storyText.pathID === storyTextIndex
   );
-  //arrow function to show the specific story that matches the pathID, which are structured as objects within the array
+  //function to show the specific story that matches the pathID, which are structured as objects within the array
   storyTextElement.innerText = storyText.text;
   //remove other choices after it has been selected
   while (choiceButtonsElement.firstChild) {
@@ -31,11 +31,12 @@ function showStoryText(storyTextIndex) {
       button.innerText = choice.text;
       button.classList.add("button");
       button.addEventListener("click", () => selectChoice(choice));
-      choiceButtonsElement.appendChild(button); //overwrites the choices available at select stages
+      choiceButtonsElement.appendChild(button); //overwrites the choices available at select stages of story
     }
   });
 }
 
+//function to show the choices depending on the storyState properties
 function showChoice(choice) {
   return (
     choice.requiredStoryState == null || choice.requiredStoryState(storyState)

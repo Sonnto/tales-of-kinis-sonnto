@@ -7,18 +7,18 @@ const storyEnviroElement = document.getElementById("enviro-image"); //game envir
 let storyState = {};
 
 //FUNCTIONS
-//Game-Starting Function
-function startGame() {
+//Story-Starting Function
+function startStory() {
   storyState = {}; //State of the story, object
-  showStoryText(0); //Start game on first storyText
+  showStoryElement(0); //Start game on intro storyElement
 }
 
 //Gets the story environment to be displayed
 
 //Gets the story text to be displayed
-function showStoryText(storyTextIndex) {
-  const storyText = storyTexts.find(
-    (storyText) => storyText.pathID === storyTextIndex
+function showStoryElement(storyElementIndex) {
+  const storyText = storyElements.find(
+    (storyText) => storyText.pathID === storyElementIndex
   );
   //function to show the specific story that matches the pathID, which are structured as objects within the array
   storyTextElement.innerText = storyText.text;
@@ -48,12 +48,12 @@ function showChoice(choice) {
 
 //Choice-Selecting Function, to know which choice player chooses
 function selectChoice(choice) {
-  const nextStoryTextId = choice.nextText;
-  if (nextStoryTextId <= 0) {
-    return startGame();
+  const nextStoryElementId = choice.nextText;
+  if (nextStoryElementId <= 0) {
+    return startStory();
   }
   storyState = Object.assign(storyState, choice.setStoryState); //takes whatever choice may have been made, if there is a state to set or item to give to character, the player will receive this by adding it to the storyState object to show choices available depending on potential previous choices;
-  showStoryText(nextStoryTextId);
+  showStoryElement(nextStoryElementId);
 }
 
 //Array of objects with nested arrays and objects which represent the different stories/pathways and choices
@@ -62,7 +62,7 @@ function selectChoice(choice) {
 //beginning with 1xx = first path (canonical light/best path)
 //beginning with 2xx = second path (dark path)
 //beginning with 3xx = slight alternate paths
-const storyTexts = [
+const storyElements = [
   // INTRO/MAIN SCREEN
   {
     pathID: 0,
@@ -351,8 +351,8 @@ const storyTexts = [
 ];
 
 console.log(`This is the state of the story: ${storyState}`),
-  //Starts Game
-  startGame();
+  //Starts Story Game
+  startStory();
 
 /*IMAGE CITATIONS
  * jedi-order-emblem.svg = https://static.wikia.nocookie.net/starwars/images/9/9d/Jedi_symbol.svg/revision/latest?cb=20080329163323

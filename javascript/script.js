@@ -46,24 +46,27 @@ function showChoice(choice) {
 //Choice-Selecting Function, to know which choice player chooses
 function selectChoice(choice) {
   const nextStoryTextId = choice.nextText;
+  if (nextStoryTextId <= 0) {
+    return startGame();
+  }
   storyState = Object.assign(storyState, choice.setStoryState); //takes whatever choice may have been made, if there is a state to set or item to give to character, the player (Sonnto) will receive this by adding it to the storyState object;
   showStoryText(nextStoryTextId);
 }
 
-//Array of objects which represent the different stories/pathways and choices
+//Array of objects with nested arrays and objects which represent the different stories/pathways and choices
 
 //beginning with 0 = intro & deaths
 //beginning with 1xx = first path (canonical light/best path)
-//beginnig with 2xx = second path (delayed death path)
-//beginning with 3xx = third path (dark path)
+//beginning with 2xx = second path (dark path)
+//beginning with 3xx = slight alternate paths
 const storyTexts = [
-  // INTRO
+  // INTRO/MAIN SCREEN
   {
     pathID: 0,
     text: "Kinis Sonnto was a Jedi Master of the Jedi Order. He has trained three apprentices in his lifetime. One successfully become a Jedi knight, one unfortunately passed away during a mission, and the first one he ever taught had turned to the dark side. There are many tales surrounding this human Jedi. This is one such tale, back when the Jedi Master was but a Jedi knight...",
     choices: [
       {
-        text: ">>[experience this tale through the eyes of Jedi Knight, Kinis Sonnto]<",
+        text: ">>[experience this tale through the eyes of Jedi Knight, Kinis Sonnto]<<",
         nextText: 100,
       },
     ],
@@ -71,16 +74,48 @@ const storyTexts = [
   // STORY DEATHS 01-
   {
     pathID: 01,
-    text: "The ship's burning interior overheats the engine and the ship exlodes with you inside. You are not one with the Force.",
+    text: "The ship's burning interior overheats the engine and the ship exlodes with you inside. You are now one with the Force.",
+    choices: [
+      {
+        text: "For better or worse, this was not the choice Kinis Sonnto made. Reload the experience.",
+        nextText: -1,
+      },
+    ],
   },
   {
     pathID: 02,
     text: "Against all odds, you try your best to subdue the dark sided beast. Unfortunately, the rancour overpowers you and your strike team. As you continue to battle, you begin to feel the fatigue set in. It roars in confidence as it swings its large, clenched fists at you. The rancour emerges victorious as you and your team are swept away by its final offensive attack. You have become one with the Force.",
+    choices: [
+      {
+        text: "For better or worse, this was not the choice Kinis Sonnto made. Reload the experience.",
+        nextText: -1,
+      },
+    ],
+  },
+  {
+    pathID: 03,
+    text: "Despite your best efforts, without the combined strength of your team, you were unable to overcome the dark beast. The rancour wipes out your strike team. The rancour clenches both fist and brings it down upon you. You muster what energy you have left to hold off the attack via the Force. Fatigue sets in as the beast slowly brings both its fists down on you. You have become one with the Force.",
+    choices: [
+      {
+        text: "For better or worse, this was not the choice Kinis Sonnto made. Reload the experience.",
+        nextText: -1,
+      },
+    ],
+  },
+  {
+    pathID: 04,
+    text: 'The Force Lightning strikes you straight on. In this moment, you feel an instant shock throughout your entire body. Try as you might, you attempt to stay focused and determined in pushing forward against the Force attack. You slowly feel your body succumb, as you feel paralyzed. The darksider follows up with a swift strike to your torso. You feel a quick searing pain in your chest. Your vision begins to fade. "You fool. You are no match for the dark side." The last words you hear, before your vision fades. You become one with the Force.',
+    choices: [
+      {
+        text: "For better or worse, this was not the choice Kinis Sonnto made. Reload the experience.",
+        nextText: -1,
+      },
+    ],
   },
   // STORY PATH 100
   {
     pathID: 100,
-    text: 'You wake up in a strange location. You feel the cold, lifeless metal floor. There is a burning smell in the air and the lights are flickering - you deduce that you are within a downed ship. Your hands instantly move towards your utility belt in search of your weapon - it\'s gone.\n\n"This lightsabre is your life" - the words of your old master echoes in your mind as you scour the area in search of it. You finally come across the hilt sitting beside a collapsed pillar.',
+    text: 'You wake up in a strange location. You feel the cold, lifeless metal floor. There is a burning smell in the air and the lights are flickering - you deduce that you are within a downed ship. Your hand instantly move towards your utility belt in search of your weapon - it\'s gone.\n\n"This lightsabre is your life" - the words of your old master echoes in your mind as you scour the area in search of it. You finally come across the hilt sitting beside a collapsed pillar.',
     choices: [
       {
         text: "[take lightsabre hilt]",
@@ -130,7 +165,7 @@ const storyTexts = [
       },
       {
         text: "[issue your orders]",
-        setStoryState: { blasters: true, strikeTeam: true, teamUnarmed: true },
+        setStoryState: { blasters: false, strikeTeam: true, teamUnarmed: true },
         nextText: 103,
       },
     ],
@@ -159,7 +194,7 @@ const storyTexts = [
           teamArmed: false,
           noStrikeTeam: true,
         },
-        nextText: 200,
+        nextText: 03,
       },
       {
         text: "You ignite your lightsabre and fight off the rancour as part of your unarmed strike team freezes up and others scramble to strategically join the fight.",
@@ -172,7 +207,7 @@ const storyTexts = [
           teamArmed: false,
           noStrikeTeam: true,
         },
-        nextText: 200,
+        nextText: 300,
       },
       {
         text: "You choose to fight off the rancour with the Force only.",
@@ -203,10 +238,32 @@ const storyTexts = [
       },
     ],
   },
-  // STORY PATH 105
+  {
+    pathID: 300,
+    text: 'As you fight valiantly against the rancour, your strike team is immobilized by fear and unfortunately succumbs to the rancour. Despite your best efforts, you were unable to save them. Upon defeating the beast, you move deeper into the cavern. You slowly approach a robed figure who exudes darkness. She turns towards you.\n\nShe laughs, "You were the Jedi that they sent? You will share the fate of those who accompanied you. Only death awaits you, Jedi!',
+    choices: [
+      {
+        text: '"Cast aside your weapon, darksider!"',
+        nextText: 301,
+      },
+      {
+        text: "[silently and confidently ready yourself for battle]",
+        nextText: 301,
+      },
+      {
+        text: '"You are to be brought before the Jedi Council for questioning. I suggest you co-operate or we will be required to use force."',
+        nextText: 301,
+      },
+      {
+        text: "[without a word, you summon the Force against the darksider]",
+        nextText: 301,
+      },
+    ],
+  },
+  // STORY PATH 105 + 301 + 302
   {
     pathID: 105,
-    text: 'You muster up the Force send the energy towards the darksider. She abruptly dissipates your attack and launches towards you and your team. The darksider sends your strike team to the ground with the Force. Before she can finish them off, your intercept her lightsabre strike with your own. The two of you lock blades. As your strike team recovers, they open fire on the dark side Force user. You break off with the darksider as she is forced to defelct the incoming blaster fire. Catching her off guard, you disarm her. Defeated, she kneels before your blade.\n\n"End my life. Kill me. I do not wish to be tortured and interrogated at the pleasure of your pathetic council."',
+    text: 'You muster up the Force and send the energy towards the darksider. She abruptly dissipates your attack and launches towards you and your team. The darksider sends your strike team to the ground with the Force. Before she can finish them off, your intercept her lightsabre strike with your own. The two of you lock blades. As your strike team recovers, they open fire on the dark side Force user. You break off with the darksider as she is forced to defelct the incoming blaster fire. Catching her off guard, you disarm her. Defeated, she kneels before your blade.\n\n"End my life. Kill me. I do not wish to be tortured and interrogated at the pleasure of your pathetic council."',
     choices: [
       {
         text: '[you arrest the darksider, ordering your strike team to place stun cuffs on her] - "We will quickly uncover the truth to all of this. First, with your arrest. You will be brought before the Council for questioning."',
@@ -214,19 +271,56 @@ const storyTexts = [
       },
       {
         text: "[execute the darksider] - Evil does not deserve to live.",
-        nextText: 300,
+        nextText: 200,
       },
     ],
   },
-  // STORY PATH 106 - END FOR NOW - GOOD ENDING
+  {
+    pathID: 301,
+    text: 'You muster up the Force and send the energy towards the darksider. She abruptly dissipates your attack and launches towards you. You bring up your blade just in time to block her attack. Your blue lightsabre blade crackles and hums as it meets her red blade. Thanks to your master\'s training, your skills surpass that of hers, even if only slightly.\n\n"Jedi are weak. Let me show you the power of the dark side!" The darksider sends a wave of Force eneriges towards you, catching you off guard and pushing you back. She then skilfully follows-up by manipulating the Force to manifest in a lightning current.',
+    choices: [
+      {
+        text: "[bring your lightsabre blade up in a defensive manoeuvre to block the incoming Force attack]",
+        nextText: 302,
+      },
+      {
+        text: "[take on the full force of the lightning attack]",
+        nextText: 04,
+      },
+    ],
+  },
+  {
+    pathID: 302,
+    text: "You successfully block the attack. You push towards the attacker and deflect the lightning towards the side of the cavern. The lightning strikes the wall and dust flies into the air, obscuring your vision. As the dust settles, you see the red blade come into view, you deactivate your lightsabre and use the Force to leap towards the attacker. You grab their lightsabre hand and twist it. With your lightsabre hand, you ignite your blade and cut off their weapon hand. She falls to her knees in defeat as you bring your blade to her neck.",
+    choices: [
+      {
+        text: '"You are under arrest, ma\'am. You will go before the Council to explain yourself."',
+        nextText: 303,
+      },
+      {
+        text: "[execute the darksider] - Evil does not deserve to live.",
+        nextText: 201,
+      },
+    ],
+  },
+  // STORY PATH 106 + 200 + 303 - END FOR NOW FOR DARK PATH AND MERGE OF ALT PATH WITH LIGHT PATH
   {
     pathID: 106,
-    text: "You and your strike team escorts the now-subdued darksider to an open area. You make contact with the Jedi High Council back at Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait, you cannot help but ponderr as to how your original ship crashed...\n\nTO BE CONTNUED...",
+    text: "You and your strike team escort the now-subdued darksider to an open area. You make contact with the Jedi High Council back on Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait for the arrival of the new transport, you cannot help but wonder as to how your original ship crashed...\n\nTO BE CONTINUED...",
   },
   {
-    pathID: 300,
-    text: 'You behead the darksider in front of your strike team. The team winches at your action. They look up at you in confusion. There is no turning back now. You lunge forward and cut down your strike team before they can fire upon you. Leave no survivors.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will... TO BE CONTINUED..."',
+    pathID: 200,
+    text: 'You behead the darksider. The team winces at your action. They look up at you in confusion. There is no turning back now. In a swift follow-up strike, you cut down your strike team before they can fire upon you, leaving no witnesses.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will..." TO BE CONTINUED...',
   },
+  {
+    pathID: 303,
+    text: "You escort the now-subdued darksider to an open area. You make contact with the Jedi High Council back on Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait for the arrival of the new transport, you cannot help but wonder as to how your original ship crashed...\n\nTO BE CONTINUED...",
+  },
+  {
+    pathID: 201,
+    text: 'You behead the darksider. You justify it in your head - she caused the death of your team, others, and potentialyl more if you do not end her carnage here. There is no turning back now.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will..." TO BE CONTINUED...',
+  },
+  // CONTINUE HERE FOR LATER
 ];
 
 //Starts Game

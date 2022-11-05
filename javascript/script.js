@@ -49,7 +49,7 @@ function selectChoice(choice) {
   if (nextStoryTextId <= 0) {
     return startGame();
   }
-  storyState = Object.assign(storyState, choice.setStoryState); //takes whatever choice may have been made, if there is a state to set or item to give to character, the player (Sonnto) will receive this by adding it to the storyState object;
+  storyState = Object.assign(storyState, choice.setStoryState); //takes whatever choice may have been made, if there is a state to set or item to give to character, the player will receive this by adding it to the storyState object to show choices available depending on potential previous choices;
   showStoryText(nextStoryTextId);
 }
 
@@ -305,25 +305,48 @@ const storyTexts = [
   },
   // STORY PATH 106 + 200 + 303 - END FOR NOW FOR DARK PATH AND MERGE OF ALT PATH WITH LIGHT PATH
   {
-    pathID: 106,
+    pathID: 106, //canonical light ending - continue when possible
     text: "You and your strike team escort the now-subdued darksider to an open area. You make contact with the Jedi High Council back on Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait for the arrival of the new transport, you cannot help but wonder as to how your original ship crashed...\n\nTO BE CONTINUED...",
+    choices: [
+      {
+        text: "Reload the experience.",
+        nextText: -1,
+      },
+    ],
   },
   {
-    pathID: 200,
+    pathID: 200, //dark ending - continue when possible
     text: 'You behead the darksider. The team winces at your action. They look up at you in confusion. There is no turning back now. In a swift follow-up strike, you cut down your strike team before they can fire upon you, leaving no witnesses.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will..." TO BE CONTINUED...',
+    choices: [
+      {
+        text: "Reload the experience.",
+        nextText: -1,
+      },
+    ],
   },
   {
-    pathID: 303,
+    pathID: 303, //alt light ending - continue with other light ending
     text: "You escort the now-subdued darksider to an open area. You make contact with the Jedi High Council back on Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait for the arrival of the new transport, you cannot help but wonder as to how your original ship crashed...\n\nTO BE CONTINUED...",
+    choices: [
+      {
+        text: "Reload the experience.",
+        nextText: -1,
+      },
+    ],
   },
   {
-    pathID: 201,
+    pathID: 201, //dark ending 2 - continue with other dark ending
     text: 'You behead the darksider. You justify it in your head - she caused the death of your team, others, and potentialyl more if you do not end her carnage here. There is no turning back now.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will..." TO BE CONTINUED...',
+    choices: [
+      {
+        text: "Reload the experience.",
+        nextText: -1,
+      },
+    ],
   },
   // CONTINUE HERE FOR LATER
 ];
 
-//Starts Game
-startGame();
-
-console.log(storyState);
+console.log(`This is the state of the story: ${storyState}`),
+  //Starts Game
+  startGame();

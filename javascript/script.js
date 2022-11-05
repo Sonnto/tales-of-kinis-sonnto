@@ -1,6 +1,7 @@
 // CONSTANT VARIABLES
 const storyTextElement = document.getElementById("story-text"); //game story text
-const choiceButtonsElement = document.getElementById("choice-buttons"); //game choices("choice-buttons");
+const choiceButtonsElement = document.getElementById("choice-buttons"); //game choices("choice-buttons")
+const storyEnviroElement = document.getElementById("enviro-image"); //game environment image
 
 // State of the story/character;
 let storyState = {};
@@ -11,6 +12,8 @@ function startGame() {
   storyState = {}; //State of the story, object
   showStoryText(0); //Start game on first storyText
 }
+
+//Gets the story environment to be displayed
 
 //Gets the story text to be displayed
 function showStoryText(storyTextIndex) {
@@ -23,7 +26,7 @@ function showStoryText(storyTextIndex) {
   while (choiceButtonsElement.firstChild) {
     choiceButtonsElement.removeChild(choiceButtonsElement.firstChild);
   }
-
+  //changes the buttons
   storyText.choices.forEach((choice) => {
     if (showChoice(choice)) {
       //check to see if can see choices, if so execute
@@ -350,3 +353,16 @@ const storyTexts = [
 console.log(`This is the state of the story: ${storyState}`),
   //Starts Game
   startGame();
+
+/*IMAGE CITATIONS
+ * jedi-order-emblem.svg = https://static.wikia.nocookie.net/starwars/images/9/9d/Jedi_symbol.svg/revision/latest?cb=20080329163323
+ * jedi-temple.webp = https://static.wikia.nocookie.net/starwars/images/f/f0/JediTemple-Deceived.jpg/revision/latest?cb=20220312224740
+ * downed-ship.jpg = https://i.pinimg.com/564x/7d/ce/d9/7dced9750710e39237d41e4997529eea.jpg
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */

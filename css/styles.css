@@ -5,8 +5,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Space Mono", "Franklin Gothic Medium", "Arial Narrow", Arial,
-    sans-serif;
+  /* font-family: "Space Mono", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif; */
 }
 
 /* 1em = 16px */
@@ -23,6 +23,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80% auto;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /* container */
@@ -39,7 +40,7 @@ body {
 /* Copyright text */
 footer {
   font-size: 8px;
-  font-family: "Franklin Gothic Medium";
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
 }
 
@@ -51,7 +52,7 @@ footer {
 /* item */
 .title {
   color: #ffe81f;
-  font-family: "Franklin Gothic Medium";
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: larger;
   text-align: center;
   /* width: 800px;
@@ -93,6 +94,7 @@ footer {
   border-radius: 15px;
   box-shadow: 0 0 10px #fff;
   background: rgba(0, 0, 0, 0.45);
+  font-family: "Space Mono";
 }
 
 #story-text {
@@ -113,6 +115,7 @@ footer {
   border-radius: 15px;
   padding: 5px 10px;
   color: #fff;
+  font-family: "Space Mono";
   /* outline: none; */
 }
 

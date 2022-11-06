@@ -10,7 +10,7 @@
 }
 
 /* 1em = 16px */
-/* body is the container, the rest are items*/
+
 #main,
 body {
   background-color: #151515;
@@ -25,9 +25,8 @@ body {
   background-size: 75% auto;
 }
 
+/* container */
 .game {
-  padding: 0;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;

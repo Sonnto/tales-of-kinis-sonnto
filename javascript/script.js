@@ -1,7 +1,7 @@
 // CONSTANT VARIABLES
 const storyTextElement = document.getElementById("story-text"); //game story text
 const choiceButtonsElement = document.getElementById("choice-buttons"); //game choices("choice-buttons")
-const storyEnviroElement = document.getElementById("enviro-image"); //game environment image
+const storyEnviroElement = document.getElementById("enviro-image").src; //game environment image
 
 // State of the story/character;
 let storyState = {};
@@ -10,23 +10,30 @@ let storyState = {};
 //Story-Starting Function
 function startStory() {
   storyState = {}; //State of the story, object
-  showStoryElement(0); //Start game on intro storyElement
+  loadStoryDetails(0); //Start game on intro storyElement
 }
 
 //Gets the story environment to be displayed
 
 //Gets the story text to be displayed
-function showStoryElement(storyElementIndex) {
-  const storyText = storyElements.find(
-    (storyText) => storyText.pathID === storyElementIndex
+function loadStoryDetails(storyDetailIndex) {
+  //loads next environment associated with the choice made/part of story
+  const storyEnviro = storyDetails.find(
+    (storyEnviro) => storyEnviro.pathID === storyDetailIndex
   );
-  //function to show the specific story that matches the pathID, which are structured as objects within the array
+  storyEnviroElement.innerText = storyEnviro.environment;
+
+  //loads next text associated with the choice made/part of story
+  const storyText = storyDetails.find(
+    (storyText) => storyText.pathID === storyDetailIndex
+  );
+  //show the specific story that matches the pathID, which are structured as objects within the array
   storyTextElement.innerText = storyText.text;
   //remove other choices after it has been selected
   while (choiceButtonsElement.firstChild) {
     choiceButtonsElement.removeChild(choiceButtonsElement.firstChild);
   }
-  //changes the buttons
+  //loads the choices associated with the previous choice made and next story
   storyText.choices.forEach((choice) => {
     if (showChoice(choice)) {
       //check to see if can see choices, if so execute
@@ -48,12 +55,12 @@ function showChoice(choice) {
 
 //Choice-Selecting Function, to know which choice player chooses
 function selectChoice(choice) {
-  const nextStoryElementId = choice.nextText;
-  if (nextStoryElementId <= 0) {
+  const nextStoryDetailId = choice.nextText;
+  if (nextStoryDetailId <= 0) {
     return startStory();
   }
   storyState = Object.assign(storyState, choice.setStoryState); //takes whatever choice may have been made, if there is a state to set or item to give to character, the player will receive this by adding it to the storyState object to show choices available depending on potential previous choices;
-  showStoryElement(nextStoryElementId);
+  loadStoryDetails(nextStoryDetailId);
 }
 
 //Array of objects with nested arrays and objects which represent the different stories/pathways and choices
@@ -62,10 +69,12 @@ function selectChoice(choice) {
 //beginning with 1xx = first path (canonical light/best path)
 //beginning with 2xx = second path (dark path)
 //beginning with 3xx = slight alternate paths
-const storyElements = [
+const storyDetails = [
   // INTRO/MAIN SCREEN
   {
     pathID: 0,
+    environment: (document.getElementById("enviro-image").src =
+      "/images/jedi-temple.webp"),
     text: "Kinis Sonnto was a Jedi Master of the Jedi Order. He has trained three apprentices in his lifetime. One successfully become a Jedi knight, one unfortunately passed away during a mission, and the first one he ever taught had turned to the dark side. There are many tales surrounding this human Jedi. This is one such tale, back when the Jedi Master was but a Jedi knight...",
     choices: [
       {
@@ -118,6 +127,8 @@ const storyElements = [
   // STORY PATH 100
   {
     pathID: 100,
+    environment: (document.getElementById("enviro-image").src =
+      "/images/downed-ship.jpg"),
     text: 'You wake up in a strange location. You feel the cold, lifeless metal floor. There is a burning smell in the air and the lights are flickering - you deduce that you are within a downed ship. Your hand instantly move towards your utility belt in search of your weapon - it\'s gone.\n\n"This lightsabre is your life" - the words of your old master echoes in your mind as you scour the area in search of it. You finally come across the hilt sitting beside a collapsed pillar.',
     choices: [
       {
@@ -134,6 +145,8 @@ const storyElements = [
   }, // STORY PATH 101
   {
     pathID: 101,
+    environment: (document.getElementById("enviro-image").src =
+      "/images/jedi-temple.webp"),
     text: "You scan your surrounding. You spot a datapad with the Jedi Order's insignia on the back. You pick it up. It reads the following:\n\n| >Name: Kinis Sonnto \n| >Rank: Jedi Knight \n| >Mission: Seek out and bring back the reported darksider on Korriban for questioning. \n| >Support: Strike Team: 3 Republic Soldiers.}\n\nYou place the datapad on your belt as you notice the blaster burns on the walls and the fire starting to spread towards the engine bay. Your Jedi senses allow you to notice three blaster rifles on the ground by the cockpit of the ship.",
     choices: [
       {

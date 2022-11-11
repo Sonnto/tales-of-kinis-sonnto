@@ -1,7 +1,7 @@
 // CONSTANT VARIABLES
 const storyTextElement = document.getElementById("story-text"); //game story text
 const choiceButtonsElement = document.getElementById("choice-buttons"); //game choices("choice-buttons")
-const storyEnviroElement = document.getElementById("enviro-image").src; //game environment image
+const storyEnviroElement = document.getElementById("enviro-image"); //game environment image
 
 // State of the story/character;
 let storyState = {};
@@ -18,18 +18,18 @@ function startStory() {
 //Gets the story text to be displayed
 function loadStoryDetails(storyDetailIndex) {
   //loads next text associated with the choice made/part of story
-  const storyText = storyDetails.find(
-    (storyText) => storyText.pathID === storyDetailIndex
-  );
+  const scene = storyDetails.find((scene) => scene.pathID === storyDetailIndex);
   //show the specific story that matches the pathID, which are structured as objects within the array
-  storyTextElement.innerText = storyText.text; //replace previous text with text based off pathID
+  storyTextElement.innerText = scene.text; //replace previous text with text based off pathID
+  // console.log(scene);
+  storyEnviroElement.src = `/images/${scene.environment}`; //gets environment associated with pathID.
 
   //remove other choices after it has been selected
   while (choiceButtonsElement.firstChild) {
     choiceButtonsElement.removeChild(choiceButtonsElement.firstChild);
   }
   //loads the choices associated with the previous choice made and next story
-  storyText.choices.forEach((choice) => {
+  scene.choices.forEach((choice) => {
     if (showChoice(choice)) {
       //check to see if can see choices, if so execute
       const button = document.createElement("button");
@@ -40,12 +40,12 @@ function loadStoryDetails(storyDetailIndex) {
     }
   });
   //loads next environment associated with the choice made/part of story
-  const storyEnviro = storyDetails.find(
-    (storyEnviro) => storyEnviro.pathID === storyDetailIndex
-  );
-  console.log("this: " + storyEnviroElement);
-  storyEnviroElement.innerHTML = storyEnviro.environment;
-  console.log("now this: " + storyEnviroElement);
+  // const storyEnviro = storyDetails.find(
+  //   (storyEnviro) => storyEnviro.pathID === storyDetailIndex
+  // );
+  // console.log("this: " + storyEnviroElement);
+  // storyEnviroElement.innerHTML = storyEnviro.environment;
+  // console.log("now this: " + storyEnviroElement);
   /* ABOVE PART OF FUNCTION REQUIRES WORK
    * Current issue: when entering into the storyDetails object > pathID > environment, the source that is the most "bottom" will be placed onto the .enviro-image ID.
    * Not sure as to why this is the case*/
@@ -78,7 +78,7 @@ const storyDetails = [
   // INTRO/MAIN SCREEN
   {
     pathID: 0,
-    environment: "",
+    environment: "jedi-temple.webp",
     text: "Kinis Sonnto was a Jedi Master of the Jedi Order. He has trained three apprentices in his lifetime. One successfully become a Jedi knight, one unfortunately passed away during a mission, and the first one he ever taught had turned to the dark side. There are many tales surrounding this human Jedi. This is one such tale, back when the Jedi Master was but a Jedi knight...",
     choices: [
       {
@@ -131,7 +131,7 @@ const storyDetails = [
   // STORY PATH 100
   {
     pathID: 100,
-    environment: "",
+    environment: "downed-ship.jpg",
     text: 'You wake up in a strange location. You feel the cold, lifeless metal floor. There is a burning smell in the air and the lights are flickering - you deduce that you are within a downed ship. Your hand instantly move towards your utility belt in search of your weapon - it\'s gone.\n\n"This lightsabre is your life" - the words of your old master echoes in your mind as you scour the area in search of it. You finally come across the hilt sitting beside a collapsed pillar.',
     choices: [
       {
@@ -148,6 +148,7 @@ const storyDetails = [
   }, // STORY PATH 101
   {
     pathID: 101,
+    environment: "datapad.webp",
     text: "You scan your surrounding. You spot a datapad with the Jedi Order's insignia on the back. You pick it up. It reads the following:\n\n| >Name: Kinis Sonnto \n| >Rank: Jedi Knight \n| >Mission: Seek out and bring back the reported darksider on Korriban for questioning. \n| >Support: Strike Team: 3 Republic Soldiers.}\n\nYou place the datapad on your belt as you notice the blaster burns on the walls and the fire starting to spread towards the engine bay. Your Jedi senses allow you to notice three blaster rifles on the ground by the cockpit of the ship.",
     choices: [
       {
@@ -364,15 +365,15 @@ const storyDetails = [
   // CONTINUE HERE FOR LATER
 ];
 
-console.log(`This is the state of the story: ${storyState}`),
-  //Starts Story Game
-  startStory();
+// console.log(`This is the state of the story: ${storyState}`),
+//Starts Story Game
+startStory();
 
 /*IMAGE CITATIONS
  * jedi-order-emblem.svg = https://static.wikia.nocookie.net/starwars/images/9/9d/Jedi_symbol.svg/revision/latest?cb=20080329163323
  * jedi-temple.webp = https://static.wikia.nocookie.net/starwars/images/f/f0/JediTemple-Deceived.jpg/revision/latest?cb=20220312224740
  * downed-ship.jpg = https://i.pinimg.com/564x/7d/ce/d9/7dced9750710e39237d41e4997529eea.jpg
- *
+ * datapad.webp = https://static.wikia.nocookie.net/starwars/images/1/17/Coronet_cargo_manifest.png/revision/latest/scale-to-width-down/1000?cb=20120906220411
  *
  *
  *

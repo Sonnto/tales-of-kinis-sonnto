@@ -173,6 +173,7 @@ const storyDetails = [
   // STORY PATH 102
   {
     pathID: 102,
+    environment: "republic-troops.webp",
     text: "You conjure the Force and pull the blasters to you as you exit the ship. Your haste in leaving turns out for the better, as the ship exlodes behind you. You notice the three Republic soldiers coming to and getting up. You approach them.",
     choices: [
       {
@@ -191,6 +192,7 @@ const storyDetails = [
   // STORY PATH 103
   {
     pathID: 103,
+    environment: "rancour.webp",
     text: "Your strike team leaves the wreckage and move inside a nearby cavern. You sense a dark side aura approaching, but it comes accompanied with roars and rumbling footsteps.\n\nIt's a rancour!",
     choices: [
       {
@@ -236,7 +238,8 @@ const storyDetails = [
   // STORY PATH 104 -- DIVERGES, ADD THE REST HERE.
   {
     pathID: 104,
-    text: "Your team's completely sychronized attacks bring down the formiddable beast. You have felled the rancour. You and your strike team move deeper into the cavern as you reach the end. A woman in dark robes suddenly appears out of nowhere - that is the darksider you have been searching for. She turns to face your strike team.\n\n\"You must be the one they sent to kill me. It is pitiful that the Jedi Council would send you to do their dirty work. You do realize you are but a pawn in their little quest to stay in power, do you not?",
+    environment: "female-darksider.webp",
+    text: 'Your team\'s completely sychronized attacks bring down the formiddable beast. You have felled the rancour. You and your strike team move deeper into the cavern as you reach the end. A woman in dark robes suddenly appears out of nowhere - that is the darksider you have been searching for. She turns to face your strike team.\n\n"You must be the one they sent to kill me. It is pitiful that the Jedi Council would send you to do their dirty work. You do realize you are but a pawn in their little quest to stay in power, do you not?"',
     choices: [
       {
         text: '"Cast aside your weapon, darksider!"',
@@ -374,8 +377,9 @@ startStory();
  * jedi-temple.webp = https://static.wikia.nocookie.net/starwars/images/f/f0/JediTemple-Deceived.jpg/revision/latest?cb=20220312224740
  * downed-ship.jpg = https://i.pinimg.com/564x/7d/ce/d9/7dced9750710e39237d41e4997529eea.jpg
  * datapad.webp = https://static.wikia.nocookie.net/starwars/images/1/17/Coronet_cargo_manifest.png/revision/latest/scale-to-width-down/1000?cb=20120906220411
- *
- *
+ * republic-troops.webp = https://static.wikia.nocookie.net/starwars/images/4/4e/MandalorianWarsRepublicTrooper.jpg/revision/latest?cb=20100806215611
+ * rancour.webp = https://natureaccordingtosam.files.wordpress.com/2022/03/rancor-3d-model-stl.jpg?w=1200
+ *  female-darksider.webp = https://lumiere-a.akamaihd.net/v1/images/image_9bbcbd86.jpeg?height=354&region=0%2C0%2C1920%2C1080&width=630
  *
  *
  *

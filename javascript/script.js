@@ -10,12 +10,10 @@ let storyState = {};
 //Story-Starting Function
 function startStory() {
   storyState = {}; //State of the story, object
-  loadStoryDetails(0); //Start game on intro storyElement
+  loadStoryDetails(0); //Start game on intro storyDetails
 }
 
-//Gets the story environment to be displayed
-
-//Gets the story text to be displayed
+//Gets the story details to be displayed
 function loadStoryDetails(storyDetailIndex) {
   //loads next text associated with the choice made/part of story
   const scene = storyDetails.find((scene) => scene.pathID === storyDetailIndex);

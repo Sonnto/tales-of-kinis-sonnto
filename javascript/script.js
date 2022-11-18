@@ -20,7 +20,7 @@ function loadStoryDetails(storyDetailIndex) {
   //show the specific story that matches the pathID, which are structured as objects within the array
   storyTextElement.innerText = scene.text; //replace previous text with text based off pathID
   // console.log(scene);
-  storyEnviroElement.src = `/images/${scene.environment}`; //gets environment associated with pathID.
+  storyEnviroElement.src = `images/${scene.environment}`; //gets environment associated with pathID.
 
   //remove other choices after it has been selected
   while (choiceButtonsElement.firstChild) {

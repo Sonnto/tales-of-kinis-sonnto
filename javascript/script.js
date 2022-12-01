@@ -88,6 +88,7 @@ const storyDetails = [
   // STORY DEATHS 01-
   {
     pathID: 01,
+    environment: "explosion-end.jpg",
     text: "The ship's burning interior overheats the engine and the ship exlodes with you inside. You are now one with the Force.",
     choices: [
       {
@@ -98,6 +99,7 @@ const storyDetails = [
   },
   {
     pathID: 02,
+    environment: "rancour-eat-end.jpg",
     text: "Against all odds, you try your best to subdue the dark sided beast. Unfortunately, the rancour overpowers you and your strike team. As you continue to battle, you begin to feel the fatigue set in. It roars in confidence as it swings its large, clenched fists at you. The rancour emerges victorious as you and your team are swept away by its final offensive attack. You have become one with the Force.",
     choices: [
       {
@@ -108,6 +110,7 @@ const storyDetails = [
   },
   {
     pathID: 03,
+    environment: "rancour-eat-end.jpg",
     text: "Despite your best efforts, without the combined strength of your team, you were unable to overcome the dark beast. The rancour wipes out your strike team. The rancour clenches both fist and brings it down upon you. You muster what energy you have left to hold off the attack via the Force. Fatigue sets in as the beast slowly brings both its fists down on you. You have become one with the Force.",
     choices: [
       {
@@ -118,6 +121,7 @@ const storyDetails = [
   },
   {
     pathID: 04,
+    environment: "lightning-end.png",
     text: 'The Force Lightning strikes you straight on. In this moment, you feel an instant shock throughout your entire body. Try as you might, you attempt to stay focused and determined in pushing forward against the Force attack. You slowly feel your body succumb, as you feel paralyzed. The darksider follows up with a swift strike to your torso. You feel a quick searing pain in your chest. Your vision begins to fade. "You fool. You are no match for the dark side." The last words you hear, before your vision fades. You become one with the Force.',
     choices: [
       {
@@ -259,6 +263,7 @@ const storyDetails = [
   },
   {
     pathID: 300,
+    environment: "female-darksider.webp",
     text: 'As you fight valiantly against the rancour, your strike team is immobilized by fear and unfortunately succumbs to the rancour. Despite your best efforts, you were unable to save them. Upon defeating the beast, you move deeper into the cavern. You slowly approach a robed figure who exudes darkness. She turns towards you.\n\nShe laughs, "You were the Jedi that they sent? You will share the fate of those who accompanied you. Only death awaits you, Jedi!',
     choices: [
       {
@@ -282,6 +287,7 @@ const storyDetails = [
   // STORY PATH 105 + 301 + 302
   {
     pathID: 105,
+    environment: "lightsaber-clash.webp",
     text: 'You muster up the Force and send the energy towards the darksider. She abruptly dissipates your attack and launches towards you and your team. The darksider sends your strike team to the ground with the Force. Before she can finish them off, your intercept her lightsabre strike with your own. The two of you lock blades. As your strike team recovers, they open fire on the dark side Force user. You break off with the darksider as she is forced to defelct the incoming blaster fire. Catching her off guard, you disarm her. Defeated, she kneels before your blade.\n\n"End my life. Kill me. I do not wish to be tortured and interrogated at the pleasure of your pathetic council."',
     choices: [
       {
@@ -296,6 +302,7 @@ const storyDetails = [
   },
   {
     pathID: 301,
+    environment: "lightsaber-clash.webp",
     text: 'You muster up the Force and send the energy towards the darksider. She abruptly dissipates your attack and launches towards you. You bring up your blade just in time to block her attack. Your blue lightsabre blade crackles and hums as it meets her red blade. Thanks to your master\'s training, your skills surpass that of hers, even if only slightly.\n\n"Jedi are weak. Let me show you the power of the dark side!" The darksider sends a wave of Force eneriges towards you, catching you off guard and pushing you back. She then skilfully follows-up by manipulating the Force to manifest in a lightning current.',
     choices: [
       {
@@ -310,6 +317,7 @@ const storyDetails = [
   },
   {
     pathID: 302,
+    environment: "lightsaber-clash.webp",
     text: "You successfully block the attack. You push towards the attacker and deflect the lightning towards the side of the cavern. The lightning strikes the wall and dust flies into the air, obscuring your vision. As the dust settles, you see the red blade come into view, you deactivate your lightsabre and use the Force to leap towards the attacker. You grab their lightsabre hand and twist it. With your lightsabre hand, you ignite your blade and cut off their weapon hand. She falls to her knees in defeat as you bring your blade to her neck.",
     choices: [
       {
@@ -325,6 +333,7 @@ const storyDetails = [
   // STORY PATH 106 + 200 + 303 - END FOR NOW FOR DARK PATH AND MERGE OF ALT PATH WITH LIGHT PATH
   {
     pathID: 106, //canonical light ending - continue when possible
+    environment: "cuffed.webp",
     text: "You and your strike team escort the now-subdued darksider to an open area. You make contact with the Jedi High Council back on Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait for the arrival of the new transport, you cannot help but wonder as to how your original ship crashed...\n\nTO BE CONTINUED...",
     choices: [
       {
@@ -335,6 +344,7 @@ const storyDetails = [
   },
   {
     pathID: 200, //dark ending - continue when possible
+    environment: "dropship-leave.jpg",
     text: 'You behead the darksider. The team winces at your action. They look up at you in confusion. There is no turning back now. In a swift follow-up strike, you cut down your strike team before they can fire upon you, leaving no witnesses.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will..." TO BE CONTINUED...',
     choices: [
       {
@@ -345,6 +355,7 @@ const storyDetails = [
   },
   {
     pathID: 303, //alt light ending - continue with other light ending
+    environment: "dropship-leave.jpg",
     text: "You escort the now-subdued darksider to an open area. You make contact with the Jedi High Council back on Coruscant and signal for a transport ship to be sent to your location for evacuation. As you patiently wait for the arrival of the new transport, you cannot help but wonder as to how your original ship crashed...\n\nTO BE CONTINUED...",
     choices: [
       {
@@ -355,6 +366,7 @@ const storyDetails = [
   },
   {
     pathID: 201, //dark ending 2 - continue with other dark ending
+    environment: "dropship-leave.jpg",
     text: 'You behead the darksider. You justify it in your head - she caused the death of your team, others, and potentialyl more if you do not end her carnage here. There is no turning back now.\n\n"Once you start down the dark path, forever will it dominate your destiny, consume you it will..." TO BE CONTINUED...',
     choices: [
       {
@@ -377,9 +389,13 @@ startStory();
  * datapad.webp = https://static.wikia.nocookie.net/starwars/images/1/17/Coronet_cargo_manifest.png/revision/latest/scale-to-width-down/1000?cb=20120906220411
  * republic-troops.webp = https://static.wikia.nocookie.net/starwars/images/4/4e/MandalorianWarsRepublicTrooper.jpg/revision/latest?cb=20100806215611
  * rancour.webp = https://natureaccordingtosam.files.wordpress.com/2022/03/rancor-3d-model-stl.jpg?w=1200
- *  female-darksider.webp = https://lumiere-a.akamaihd.net/v1/images/image_9bbcbd86.jpeg?height=354&region=0%2C0%2C1920%2C1080&width=630
- *
- *
+ * female-darksider.webp = https://lumiere-a.akamaihd.net/v1/images/image_9bbcbd86.jpeg?height=354&region=0%2C0%2C1920%2C1080&width=630
+ * lightsaber-clash.webp = https://static.wikia.nocookie.net/to-hollywood-and-beyond/images/d/d1/Lightsaber.jpg/revision/latest/scale-to-width-down/1000?cb=20141024194919
+ *  cuffed.webp = https://static.wikia.nocookie.net/starwars/images/d/d8/Stuncuffs.png/revision/latest/scale-to-width-down/1000?cb=20210722084753
+ * dropship-leave.jpg = https://3.bp.blogspot.com/-3dJTH0di9Ik/UlQytQjNWSI/AAAAAAAAaIo/-90P3ccPHIY/s1600/AV_137-0010.1141.jpg
+ * explosion-end.jpg = https://i.gzn.jp/img/2018/02/26/star-wars-the-last-jedi-bumbing-run/snap00133.jpg
+ * rancour-eat-end.jpg = https://mercilessnature.com/wp-content/uploads/2021/08/RancorCh1Human.wmv_snapshot_00.35__2016.03.13_10.24.52_3.jpg
+ * lightning-end.png = http://www.theforce.net/swtc/Pix/dvd/ep6/bones1.jpg
  *
  *
  */

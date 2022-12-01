@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 /* MAIN PAGE STYLING */
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Space Mono", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  padding: 0;
+  margin: 0;
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  /* font-family: "Space Mono", "Franklin Gothic Medium", "Arial Narrow", Arial,
-    sans-serif; */
 }
 
 /* 1em = 16px */
@@ -38,65 +45,56 @@ body {
 }
 
 /* Copyright text */
-footer {
+
+#footer {
   font-size: 8px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
-}
-
-#footer {
   color: #fff;
-  line-height: 20%;
+  margin-top: 16px;
 }
 
 /* GAME TITLE STYLING */
-/* item */
-.title {
+#title {
   color: #ffe81f;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: larger;
   text-align: center;
-  /* width: 800px;
-  max-width: 80%;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #5ebff7; */
 }
 
-.title h1 {
+#title h1 {
   text-shadow: 0 0 2px #5ebff7;
+  margin: 16px 0;
 }
 
 /* STORY */
 /* item */
 .story-environment {
-  width: 800px;
-  max-width: 90%;
-  /* padding: 10px; */
+  width: fit-content;
+  height: 80vh;
   border-radius: 15px;
   box-shadow: 0 0 10px #fff;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
 .story-environment img {
-  min-width: 100%;
-  min-height: 100%;
-  /* object-fit: cover; */
+  width: 800px;
+  height: 80vh;
+  object-fit: cover;
 }
 
 /* item */
 .story {
   width: 800px;
-  max-width: 90%;
+  height: fit-content;
   padding: 10px;
   border-radius: 15px;
   box-shadow: 0 0 10px #fff;
   background: rgba(0, 0, 0, 0.45);
   font-family: "Space Mono";
-  overflow: scroll;
 }
 
 #story-text {
@@ -119,7 +117,6 @@ footer {
   color: #fff;
   font-family: "Space Mono";
   line-height: 1em;
-  /* outline: none; */
 }
 
 .button:hover {
@@ -128,4 +125,9 @@ footer {
 
 .button:active {
   background-color: #8fd6ff;
+}
+
+/* ============================= MEDIA QUERY FOR MOBILE ============================= */
+
+@media screen and (max-width: 426px) {
 }

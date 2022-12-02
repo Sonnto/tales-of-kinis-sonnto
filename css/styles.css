@@ -4,7 +4,6 @@
 
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
   font-family: "Space Mono", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
   padding: 0;
@@ -41,7 +40,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  gap: 0.5em;
+  gap: 16px;
 }
 
 /* Copyright text */
@@ -70,11 +69,11 @@ body {
 /* STORY */
 /* item */
 .story-environment {
-  width: fit-content;
+  width: 800px;
   height: 80vh;
   border-radius: 15px;
   box-shadow: 0 0 10px #fff;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -107,6 +106,8 @@ body {
   grid-template-columns: repeat(2, auto);
   gap: 10px;
   margin-top: 20px;
+  justify-content: center;
+  text-align: center;
 }
 
 .button {
@@ -116,7 +117,7 @@ body {
   padding: 5px 10px;
   color: #fff;
   font-family: "Space Mono";
-  line-height: 1em;
+  line-height: 16px;
 }
 
 .button:hover {

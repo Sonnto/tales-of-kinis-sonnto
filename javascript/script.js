@@ -37,16 +37,6 @@ function loadStoryDetails(storyDetailIndex) {
       choiceButtonsElement.appendChild(button); //overwrites the choices available at select stages of story
     }
   });
-  //loads next environment associated with the choice made/part of story
-  // const storyEnviro = storyDetails.find(
-  //   (storyEnviro) => storyEnviro.pathID === storyDetailIndex
-  // );
-  // console.log("this: " + storyEnviroElement);
-  // storyEnviroElement.innerHTML = storyEnviro.environment;
-  // console.log("now this: " + storyEnviroElement);
-  /* ABOVE PART OF FUNCTION REQUIRES WORK
-   * Current issue: when entering into the storyDetails object > pathID > environment, the source that is the most "bottom" will be placed onto the .enviro-image ID.
-   * Not sure as to why this is the case*/
 }
 
 //function to show the choices depending on the storyState properties

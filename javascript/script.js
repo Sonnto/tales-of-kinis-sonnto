@@ -67,7 +67,7 @@ const storyDetails = [
   {
     pathID: 0,
     environment: "jedi-temple.webp",
-    text: "Kinis Sonnto was a Jedi Master of the Jedi Order. He has trained three apprentices in his lifetime. One successfully become a Jedi knight, one unfortunately passed away during a mission, and the first one he ever taught had turned to the dark side. There are many tales surrounding this human Jedi. This is one such tale, back when the Jedi Master was but a Jedi knight...",
+    text: "Kinis Sonnto was a Jedi Master of the Jedi Order. He has trained three apprentices in his lifetime. The most recent one successfully became a Jedi Knight, one unfortunately passed away during a mission, and the first one he ever taught had turned to the dark side. There are many tales surrounding this human Jedi. This is one such tale, back when the Jedi Master was but a Jedi Knight...",
     choices: [
       {
         text: ">>[experience this tale through the eyes of Jedi Knight, Kinis Sonnto]<<",

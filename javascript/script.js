@@ -20,7 +20,7 @@ function loadStoryDetails(storyDetailIndex) {
   //show the specific story that matches the pathID, which are structured as objects within the array
   storyTextElement.innerText = scene.text; //replace previous text with text based off pathID
   // console.log(scene);
-  storyEnviroElement.src = `images/${scene.environment}`; //gets environment associated with pathID.
+  storyEnviroElement.src = `./assets/images/${scene.environment}`; //gets environment associated with pathID.
 
   //remove other choices after it has been selected
   while (choiceButtonsElement.firstChild) {
@@ -372,7 +372,7 @@ const storyDetails = [
 //Starts Story Game
 startStory();
 
-/* IMAGE CITATIONS
+/*IMAGE CITATIONS
  * jedi-order-emblem.svg = https://static.wikia.nocookie.net/starwars/images/9/9d/Jedi_symbol.svg/revision/latest?cb=20080329163323
  * jedi-temple.webp = https://static.wikia.nocookie.net/starwars/images/f/f0/JediTemple-Deceived.jpg/revision/latest?cb=20220312224740
  * downed-ship.jpg = https://i.pinimg.com/564x/7d/ce/d9/7dced9750710e39237d41e4997529eea.jpg
@@ -388,10 +388,4 @@ startStory();
  * lightning-end.png = http://www.theforce.net/swtc/Pix/dvd/ep6/bones1.jpg
  *
  *
- */
-
-/* TODO
- * - Remove arrow function code from JSON portion;
- * - Separate paths; hard-code all paths;
- * - showChoice function; rewrite to boolean check of properties instead of checking whether properties just exist
  */

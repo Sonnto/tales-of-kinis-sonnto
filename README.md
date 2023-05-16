@@ -8,7 +8,9 @@ A text-based adventure game where the user can relive the stories of fictional J
 - CSS
 - JavaScript
 
-# Instructions, Installation Steps
+# Instructions
+
+## What to do?
 
 Click the buttons to start the adventure
 
